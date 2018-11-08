@@ -257,19 +257,17 @@ function logProps(WrappedComponent) {
 
 ----
 
-## Accessibility
+## Accessibility \(WIP\)
 
-# Accessibility \(WIP\)
-
-## 왜 Accessibility 인가?
+### 왜 Accessibility 인가?
 
 * [`ally`](https://en.wiktionary.org/wiki/a11y) 라고도 불리는 웹 접근성\(web accessibility\)은 모두가 사용할 수 있는 웹을 위한 웹 디자인이다.
 * 접근성은 웹 페이지를 해석하는데 필요한 도움이 되는 기술이다.
 * React는 접근성이 높은 페이지를 만들기 위해서 전적으로 지원하고, 종종 기본 HTML 테크닉을 사용하기도 한다.
 
-## 기준과 가이드라인
+### 기준과 가이드라인
 
-### WCAG
+#### WCAG
 
 * [Web Content Accessibility Guideline](https://www.w3.org/WAI/standards-guidelines/wcag/)은 접근성 높은 웬 사이트를 만들기 위한 가이드 라인을 제공한다.
 * 아래는 WCAG checklist 개요이다.
@@ -277,7 +275,7 @@ function logProps(WrappedComponent) {
   * [WCAG checklist from WebAIM](http://webaim.org/standards/wcag/checklist)
   * [Checklist from The A11Y Project](https://a11yproject.com/checklist.html)
 
-### WAI-ARIA
+#### WAI-ARIA
 
 * [웹 접근성 초기화 계획인 - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) 도큐먼트는 웹 접근성이 높은 JavaScript 위젯을 만들기 위한 테크닉들을 가지고 있다.
 * JSX에서 모든 `aria-*` HTML attribute들이 지원된다.
@@ -296,7 +294,7 @@ function logProps(WrappedComponent) {
 />
 ```
 
-## Semantic HTML
+### Semantic HTML
 
 * Semantic HTML은 웹 어플리케이션 접근성의 토대이다.
 * 다양한 HTML element를 사용해서 웹 사이트의 정보를 강화하면, 가끔 접근성을 무료로 얻을 수 있다.
@@ -360,9 +358,9 @@ function ListItem({ item }) {
 
 * 더 알고 싶다면 [Fragment 도큐멘트](https://reactjs.org/docs/fragments.html)를 보자!
 
-## 접근 가능한 form
+### 접근 가능한 form
 
-### 레이블링
+#### 레이블링
 
 * `<input>` 또는 `<textarea>` HTML form을 컨트롤 하기 위해선, 레이블이 필요하다.
 * 스크린 리더에게 노출 될 수 있는 묘사가 가능한 레이블을 제공해줘야한다.
@@ -377,14 +375,14 @@ function ListItem({ item }) {
   <input id="namedInput" type="text" name="name"/>
   ```
 
-## Notifying the user of errors
+### Notifying the user of errors
 
 * 모든 유저들이 에러 발생 시 이 에러를 이해해야한다.
 * 아래의 링크가 어떻게 에러 텍스트를 노출 시키고, 스크린 리더가 읽을 수 있는지를 가이드 해준다.
   * [W3C 사용자 알람 설명](https://www.w3.org/WAI/tutorials/forms/notifications/)
   * [WebAIM의 form validation](https://webaim.org/techniques/formvalidation/)
 
-## Focus Control
+### Focus Control
 
 * 웹 어플리케이션은 키보드로만으로도 동작해야 한다는 것을 명심해야한다.
   * [WebAIM 이 이야기하는 keyboard accessibility](https://webaim.org/techniques/keyboard/)

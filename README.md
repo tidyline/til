@@ -8,7 +8,7 @@ description: The place writing down the things that I learned today.
 
 ### React
 
-* [Higher-Order-Component](https://github.com/tidyline/til/blob/master/Higher-Order-Component.md)
+* [Higher-Order-Component](https://github.com/tidyline/til/blob/master/React.md#higher-order-components-wip)
 * Advanced
   * [Accessibility](https://github.com/tidyline/til/blob/master/Accessibility.md)
 
