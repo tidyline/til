@@ -1,8 +1,9 @@
 # Table of contents
 
 * [Today I Learned](README.md)
-* [AMP](AMP.md)
-* [React](React.md)
-  * [Accessibility \(WIP\)](react/accessibility.md)
-  * [Higher-Order Components \(WIP\)](react/higher-order-component.md)
+* [AMP](AMP/README.md)
+  * [AMP CORS](AMP/AMP-CORS.md)
+* [React](React/README.md)
+  * [Accessibility \(WIP\)](React/Accessibility.md)
+  * [Higher-Order Components \(WIP\)](React/Higher-Order-Component.md)
 
