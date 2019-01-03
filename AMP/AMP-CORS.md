@@ -48,4 +48,3 @@
 1. CORS Origin Header가 허용된 origin 인지 확인 (본인 domain과 AMP cache의 origin)
 2. 만약 Origin 헤더가 없다면, 요청이 동일한 origin 인지 `AMP-Same-Origin`을 통해서 확인해라
 3. 만약 요청이 POST와 같이 상태 변경에 대한 것이라면, origin이 source origin으로 부터 온 것인지 확인해야한다. (__amp_source_origin)
-
