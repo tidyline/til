@@ -175,7 +175,19 @@ chrome.extension.onMessage.addListener(function (msg, sender, sendResponse) {
 ```
 > 권한 종류는 [요기](https://developer.chrome.com/apps/declare_permissions) 가면 더 볼 수 있습니다.
 
-----
+------
+
+### 3) 디버깅은 어떻게 하는가?
+
+디버깅은 짱! 간단합니다..
+주소창에 chrome://extensions/ 를 입력하시고..
+
+아래와 같이 개발중인 폴더째로 로드하고..
+성공하면 백그라운드 페이지를 누르면 디버깅 할 수 있는 별도의 개발자도구 창이 뜹니다.. 끗...
+
+![image](https://user-images.githubusercontent.com/25981942/51578211-1b4cf480-1f00-11e9-978d-ff51fdea7919.png)
+
+------
 
 - 그러나 아래와 같이 custom 한 스크립트를 동작시키고 싶을 때
    원하는 동작이 실행되지 않을 수도 있습니다.
