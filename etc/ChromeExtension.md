@@ -189,6 +189,100 @@ chrome.extension.onMessage.addListener(function (msg, sender, sendResponse) {
 
 ------
 
+### 🐝  특정 도메인에서만 툴팁이 노출되었으면 좋겠어요!
+> manifest permission : `"declarativeContent"`
+> 구현 스크립트 : background.js
+
+```js
+chrome.runtime.onInstalled.addListener(function () {
+	chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+		chrome.declarativeContent.onPageChanged.addRules([{
+			conditions: [new chrome.declarativeContent.PageStateMatcher({
+				pageUrl: {hostSuffix: 'abc.com'},
+			})],
+			actions: [new chrome.declarativeContent.ShowPageAction()]
+		}]);
+	});
+});
+```
+
+- 런타임 `onInstalled` 이벤트가 발생하였을 때,
+  이런 조건(`conditions`)일 때 이런 액션(`actions`)를 해라! 라는 코드인데요!
+   - 조건 종류는 [여기](https://developer.chrome.com/extensions/declarativeContent)에서 더 확인할 수 있습니다.
+
+- `hostSuffix` 즉, host가 'abc.com' 으로 끝나는 경우 `ShowPageAction()` 을 하라는 것입니다.
+   manifest 에.. popup.html을 `page_action` 에 지정했던 것 기억하시나요?!
+   그래서 `ShowPageAction()`을 호출하면 popup을 노출 시킬 수 있습니다.
+   ~왠지.. `ShowPopup()` 이여야할 것 같은데...*~
+
+- 그렇다면, `abc.com`이 아닌 도메인에서는 어떻게 노출되는지 궁금하시죠?
+   ![image](https://user-images.githubusercontent.com/25981942/51578302-6830cb00-1f00-11e9-923c-3becdd2ed931.png)
+
+- 조건이 일치하는 경우에는 팝업이 뜹니다..
+
+---
+
+## 기타
+
+### 🐝 사용자 화면의 Http 요청을 제어할 수 있을까요?
+> manifest permission : `"webRequest"`
+> "persistent" : true
+>```diff
+> // manifest.json
+> {
+>   "background" : {
+>       "scripts" : ["background.js"],
+>+     "persistent" : true
+>   }
+>}
+>```
+> 구현 스크립트 : background.js
+
+- 네!! 제어할 수 있습니다.
+  자세한 설정은 [chrome.webRequest](https://developer.chrome.com/extensions/webRequest) 에 있습니다.
+
+#### `onBeforeRequest` 예시
+
+```js
+chrome.webRequest.onBeforeRequest.addListener(
+	function(details) {
+		console.log(details.url.match(/a=(.*?)&/i)[1]);
+                // return ~~ ;
+	},
+	{
+		urls: [
+			"*://abc.com/*",
+			"*://beta-abc.com/*",
+			"*://alpha-abc.com/*"
+		]
+	}
+);
+```
+- 위 코드는 http 요청 전의 `onBeforeRequest` hook을 사용한 것입니다.
+
+- http 요청 전 urls에 해당하는 것들만 걸러서,
+  요청에 대한 정보를 콜백의 인자(`details`)로 넘겨줍니다.
+
+#### 🚫 요청 cancel 예시
+
+```js
+chrome.webRequest.onBeforeRequest.addListener(
+	function(details) {
+		return {cancel: details.url.indexOf("://www.evil.com/") != -1};
+	},
+	{urls: ["<all_urls>"]},
+	["blocking"]
+);
+```
+
+- 뿐만 아니라 이 콜백에서 `return {}` 시 여러 옵션을 넘겨서
+  요청을 수정하거나 취소하거나 하는 등의 제어도 가능합니다.
+
+- 콜백의 리턴 값으로 `cancel : boolean` 프로퍼티를 이용해서 request를 취소 할 수도 있습니다.
+
+-   ⚠️이렇게 request를 취소하는 경우에는 `"webRequest"` Permission 뿐만아니라
+    `"webRequestBlocking"`도 추가해주어야 합니다.
+
 - 그러나 아래와 같이 custom 한 스크립트를 동작시키고 싶을 때
    원하는 동작이 실행되지 않을 수도 있습니다.
 
