@@ -312,4 +312,3 @@ document.body.appendChild(script);
 
 > `chrome.extension.getURL`을 사용하면 chrome extension 내 스크립트 환경에 있는
 > script 를 fullpath로 가져올 수 있습니다.
-```
