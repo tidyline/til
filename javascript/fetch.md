@@ -18,3 +18,11 @@
 
 여튼, 이 ajax 기능을 구현하기 위한 실제 구현체는 브라우저 내장 객체인 [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)이다.
 
+-----
+> 기록용으로 먼저 작성
+
+- 간단한 get 요청
+
+```js
+const result = await fetch(url).then(res => res.json());
+```
