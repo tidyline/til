@@ -26,3 +26,13 @@
 ```js
 const result = await fetch(url).then(res => res.json());
 ```
+
+- 요청 시 cookie 포함
+
+> https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials
+
+```js
+fetch(url, {
+    credentials: 'include'
+}).then(res => res.json());
+```
