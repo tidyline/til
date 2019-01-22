@@ -33,7 +33,22 @@ Error: ENOENT: no such file or directory, uv_cwd
 - 원인
     - 난 바보..
     - IDE를 열어놓은 상태에서 해당 폴더를 지웠다가, 다시 만들어서 새롭게 개발하려고 했음..
+
+- 해결
     - IDE 터미널에서 에러가 발생하였는데, `cd ..` 갔다가 다시 `cd folder` 돌아오면 해결...*
 
 - 관련 링크
     - https://github.com/npm/npm/issues/10983
+
+-----
+
+## 어느날 gitbook이 동기화가 안됨 ㅠㅠ
+
+- 현상
+    - github hook으로 gitbook 동기화를 사용하고 있었음
+        - https://hooks.gitbook.com/hooks/github?spaceID={spaceId}
+    - 그런데 이 방법이 바뀌었던 것 같음!!
+
+- 해결
+    - https://docs.gitbook.com/integrations/github/content-configuration
+    - hook을 지우고 `.gitbook.yaml` 만들어서 넣어줌..
