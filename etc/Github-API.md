@@ -1,5 +1,8 @@
 ## Github API
 
+### 개인 토큰 발급 받는 곳
+- https://github.com/settings/tokens
+
 ### 이슈 생성 하는 법
 
 - url 생성
