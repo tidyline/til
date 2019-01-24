@@ -52,3 +52,30 @@ Error: ENOENT: no such file or directory, uv_cwd
 - 해결
     - https://docs.gitbook.com/integrations/github/content-configuration
     - hook을 지우고 `.gitbook.yaml` 만들어서 넣어줌..
+
+----
+
+## 띠로리.. 깃헙 커밋을 잘못된 user.name과 user.email로 하였을 때..
+
+```bash
+git rebase -i HEAD~1
+```
+
+```bash
+// interactive mode
+// pick을 edit(e)로 변경하고 :wq!
+
+e 4bfa08c delete file
+
+# Rebase 422cbed..4bfa08c onto 422cbed (1 command)
+```
+
+```bash
+git commit --amend --author="tidyline <tidyaline@gmail.com>"
+```
+
+```bash
+git rebase --continue
+
+// tada!
+```
