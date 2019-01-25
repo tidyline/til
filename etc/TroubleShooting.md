@@ -57,6 +57,22 @@ Error: ENOENT: no such file or directory, uv_cwd
 
 ## 띠로리.. 깃헙 커밋을 잘못된 user.name과 user.email로 하였을 때..
 
+- (참고) global `user.name`, `user.email` 설정을 보고 싶을 때
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+- (참고) 해당 폴더의 `user.name`, `user.email` 설정을 보고 싶을 때
+
+```bash
+git config user.name
+git config user.email
+```
+
+- 그렇다면! 커밋을 수정해봅시다.
+
 ```bash
 git rebase -i HEAD~1
 ```
